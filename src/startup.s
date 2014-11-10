@@ -220,10 +220,20 @@ call_main:	mov		r0, #0			/* argc=0 */
 
 		bl		main 
 
-/* main() should never return, but if it does, just do nothing forever.
-Should probably put processor into sleep mode instead. */
+/* If main returns, we jump into the bootloader. The bootloader expect things
+to be configured similar to what they are on reset, so we first have to restore
+RCC clocks and map in the boot ROM. */
 
-		b		.
+		LDR     R0, =0x40023844 /* RCC_APB2ENR */
+		LDR     R1, =0x00004000 /* ENABLE SYSCFG CLOCK */
+		STR     R1, [R0, #0]
+		LDR     R0, =0x40013800 /* SYSCFG_MEMRMP */
+		LDR     R1, =0x00000001 /* MAP ROM AT ZERO */
+		STR     R1, [R0, #0]
+		LDR     R0, =0x1FFFD800 /* ROM BASE */
+		LDR     SP,[R0, #0]     /* SP @ +0 */
+		LDR     R0,[R0, #4]     /* PC @ +4 */
+		BX      R0
 
 /*=============================================================================*/
 
