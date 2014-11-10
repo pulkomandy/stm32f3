@@ -32,6 +32,8 @@ int main(void)
 	ConfigureLEDs();
 	ConfigureUSART1();
 
+	char c;
+
 	// Loop forever
 	for(;;)
 	for(int i = 0x100; i <= 0x8000; i <<= 1) {
@@ -40,10 +42,15 @@ int main(void)
 
 		// Let's also send some garbabe to the UART
 		// (assuming it was setup by the bootloader)
-		USART1->TDR = 'U';
 
-		// Sleep for a while so it doesn't blink too fast
-		for(int j = 0; j < 0x3ffff; j++);
+		// Wait for a char on the UART
+		while (!(USART1->ISR & USART_ISR_RXNE));
+		// Echo the read char.
+		c = USART1->RDR;
+
+		USART1->TDR = c;
+		if (c == 'U')
+			return 1;
 	};
 	return 0;
 }
