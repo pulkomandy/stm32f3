@@ -1,12 +1,10 @@
-/* Linker script for STM32F405RG Cortex-M4 ARM MCU */
-
-/* $Id: stm32f405rg.ld 3880 2012-06-04 10:45:35Z svn $ */
+/* Linker script for STM32F303 Cortex-M3 ARM MCU */
 
 /* Define the memory mapping of the chip */
 MEMORY
 {
   flash (rx)  : ORIGIN = 0x08000000, LENGTH = 128K
-  ram (rwx) : ORIGIN = 0x1FFFD800, LENGTH = 32K
+  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 40K
   ccm (rwx) : ORIGIN = 0x10000000, LENGTH = 8K
 }
 
