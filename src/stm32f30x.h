@@ -6926,10 +6926,7 @@ typedef struct
 #define SYSCFG_EXTICR1_EXTI3_PD         ((uint16_t)0x3000) /*!< PD[3] pin */
 #define SYSCFG_EXTICR1_EXTI3_PE         ((uint16_t)0x4000) /*!< PE[3] pin */
 
-/*****************  Bit definition for SYSCFG_EXTICR2 register  ***************/
-#define SYSCFG_EXTIRCR_EXTI4            ((uint16_t)0x000F) /*!< EXTI 4 configuration */
-#define SYSCFG_EXTIRCR_EXTI5            ((uint16_t)0x00F0) /*!< EXTI 5 configuration */
-#define SYSCFG_EXTIRCR_EXTI6            ((uint16_t)0x0F00) /*!< EXTI 6 configuration */
+/*****************  Bit definition for SYSCF((uint16_t)0x0F00) /*!< EXTI 6 configuration */
 #define SYSCFG_EXTIRCR_EXTI7            ((uint16_t)0xF000) /*!< EXTI 7 configuration */
 
 /** 
@@ -6959,6 +6956,13 @@ typedef struct
 #define SYSCFG_EXTIRCR_EXTI6_PB         ((uint16_t)0x0100) /*!< PB[6] pin */
 #define SYSCFG_EXTIRCR_EXTI6_PC         ((uint16_t)0x0200) /*!< PC[6] pin */
 #define SYSCFG_EXTIRCR_EXTI6_PD         ((uint16_t)0x0300) /*!< PD[6] pin */
+#define SYSCFG_EXTIRCR_EXTI6_PE         ((uint16_t)0x0400) /*!< PE[6] pin */
+#define SYSCFG_EXTIRCR_EXTI6_PF         ((uint16_t)0x0500) /*!< PF[6] pin */
+
+/** 
+  * @brief  EXTI7 configuration  
+  */ 
+#define SYSCFG_EXTIRCR_EXTI7_PA         ((pin */
 #define SYSCFG_EXTIRCR_EXTI6_PE         ((uint16_t)0x0400) /*!< PE[6] pin */
 #define SYSCFG_EXTIRCR_EXTI6_PF         ((uint16_t)0x0500) /*!< PF[6] pin */
 

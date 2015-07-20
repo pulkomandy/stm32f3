@@ -163,7 +163,7 @@ _start: 	.word		__stack_end__	/* The stack is set up by the CPU using this at re
 
 		.thumb_func
 Default_Handler: 
-		bx		lr
+		b		.
 
 /*===========================================================================*/
 
